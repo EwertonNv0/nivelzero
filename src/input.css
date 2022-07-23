@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Preset */
+body{
+    max-width: 1400px;
+    font-family: 'Slabo 27px', serif;
+}
+input, textarea{
+    font-family: 'Slabo 27px', serif;
+    outline: 0;
+}
+
+/* Efeito maquina de escrever do banner*/
+.headline:after{
+    content: '|';
+    margin-left: 5px;
+    opacity: 1;
+    animation: flash 1s infinite;
+}
+@keyframes flash{
+    0%, 100%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+}
+
+/* Aparencia animada do menu */
+.button{
+    color: #000;
+    position: relative;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: .4s;
+}
+.button:focus:after, .button:hover:after{
+    width: 100%;
+    left: 0%;
+}
+.button:after{
+    content: "";
+    bottom: -2px;
+    left: 50%;
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: #000;
+    transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition-duration: .4s;
+    transition-property: width, left;
+}
